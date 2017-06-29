@@ -27,10 +27,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //adapter = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, list);
-        adapter = new ArrayAdapter<String>(this, R.layout.array_adapter_item, list);
-        //adapter = ArrayAdapter.createFromResource(this, R.array.list_array, R.layout.support_simple_spinner_dropdown_item);
+        adapter = ArrayAdapter.createFromResource(this, R.array.list_array, R.layout.support_simple_spinner_dropdown_item);
+        //adapter = new ArrayAdapter<String>(this, R.layout.array_adapter_item, list);
         lv.setAdapter(adapter);
-        //给lv的item设置点击时间
+        //给lv的item设置点击事件
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             //parent:表示适配器设置到的adapterView对象，这里表示的是ListView
             //view：适配器item对应的view
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             //id：在ListView中的item对应的id
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(MainActivity.this, "点击的是索引" + position + id, Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "点击的是索引:" + position + ",id:" + id, Toast.LENGTH_SHORT).show();
             }
         });
         //实现item长按删除效果
@@ -52,5 +52,6 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
     }
 }
